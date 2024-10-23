@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2dplf5yd3u81"]
+[gd_scene load_steps=4 format=3 uid="uid://c2dplf5yd3u81"]
 
 [ext_resource type="Script" path="res://Scene/Game/game.gd" id="1_f8s07"]
 [ext_resource type="PackedScene" uid="uid://crdxwy4epqdix" path="res://Scene/Peep/peep.tscn" id="2_toctu"]
+[ext_resource type="Texture2D" uid="uid://bnttrmqeygo6a" path="res://Images/leave-icon-2048x1688.png" id="3_qeddn"]
 
 [node name="Game" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.000422138
 script = ExtResource("1_f8s07")
 peep_scene = ExtResource("2_toctu")
 
@@ -26,3 +28,20 @@ offset_right = 966.696
 offset_bottom = 226.696
 grow_vertical = 2
 columns = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -36.0
+offset_bottom = 30.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_qeddn")
+stretch_mode = 1
+
+[connection signal="pressed" from="VBoxContainer/TextureButton" to="." method="_on_texture_button_pressed"]
